@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    float speed = 20f;
-    Rigidbody rigidbody;
-    Vector3 velocity;
+   public float speed = 20f;
+   public Rigidbody _rigidbody;
+   public Vector3 velocity;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        rigidbody.velocity = Vector3.down * _speed();
+        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.velocity = Vector3.down * speed;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        _rigidbody.velocity = _rigidbody.velocity.normalized * speed;
+        velocity = _rigidbody.velocity;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        rigidbody.velocity = Vector3.Reflect(rigidbody.velocity, collision.contacts[0]);
+        _rigidbody.velocity = Vector3.Reflect(velocity, collision.contacts[0].normal);
     }
 }
