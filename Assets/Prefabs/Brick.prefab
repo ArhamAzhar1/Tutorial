@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hits: 1
   points: 1
+  rotator: {x: 1, y: 0, z: 0}
