@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
+    public int hits = 1;
+    public int points = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,15 @@ public class Brick : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        hits--;
+
+        if (hits <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
