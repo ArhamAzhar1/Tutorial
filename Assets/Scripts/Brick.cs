@@ -35,5 +35,12 @@ public class Brick : MonoBehaviour
             Destroy(gameObject);
         }
         _renderer.sharedMaterial = hitMaterial;
+        Invoke("RestoreMaterial", 0.05f);
     }
+
+    void RestoreMaterial()
+    {
+        _renderer.sharedMaterial = _orgMaterial;
+    }
+
 }
