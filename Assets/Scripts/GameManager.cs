@@ -19,6 +19,30 @@ public class GameManager : MonoBehaviour
     public enum State {MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL, GAMEOVER }
     State _state;
 
+    private int _score;
+
+    public int Score
+    {
+        get { return _score; }
+        set { _score = value; }
+    }
+
+    private int _level;
+
+    public int Level
+    {
+        get { return _level; }
+        set { _level = value; }
+    }
+
+    private int _balls;
+
+    public int Balls
+    {
+        get { return _balls; }
+        set { _balls = value; }
+    }
+
     public void PlayClicked()
     {
         SwitchState(State.INIT);
@@ -52,10 +76,12 @@ public class GameManager : MonoBehaviour
             case State.PLAY:
                 break;
             case State.LEVELCOMPLETED:
+                levelCompletedPanel.SetActive(true);
                 break;
             case State.LOADLEVEL:
                 break;
             case State.GAMEOVER:
+                gameOverPanel.SetActive(true);
                 break;
         }
     }
@@ -91,6 +117,7 @@ public class GameManager : MonoBehaviour
             case State.PLAY:
                 break;
             case State.LEVELCOMPLETED:
+                levelCompletedPanel.SetActive(false);
                 break;
             case State.LOADLEVEL:
                 break;
