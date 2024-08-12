@@ -16,7 +16,12 @@ public class GameManager : MonoBehaviour
     public GameObject levelCompletedPanel;
     public GameObject gameOverPanel;
 
-    public enum State {MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL, GAMEOVER }
+    public static GameManager Instance
+    {
+        get; private set;
+    }
+
+    public enum State { MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL, GAMEOVER }
     State _state;
 
     private int _score;
@@ -25,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         get { return _score; }
         set { _score = value; }
+       
     }
 
     private int _level;
@@ -51,11 +57,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         SwitchState(State.MENU);
     }
 
     // Update is called once per frame
-   
+
 
     public void SwitchState(State newState)
     {
@@ -72,6 +79,11 @@ public class GameManager : MonoBehaviour
                 break;
             case State.INIT:
                 playPanel.SetActive(true);
+                Score = 0;
+                Level = 0;
+                Balls = 3;
+                Instantiate(playerPrefab);
+                SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
                 break;
@@ -128,3 +140,4 @@ public class GameManager : MonoBehaviour
     }
 
 }
+
