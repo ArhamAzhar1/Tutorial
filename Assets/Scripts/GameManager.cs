@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     State _state;
 
     GameObject _currentBall;
+    GameObject _currentLevel;
 
     private int _score;
 
@@ -95,6 +96,14 @@ public class GameManager : MonoBehaviour
                 levelCompletedPanel.SetActive(true);
                 break;
             case State.LOADLEVEL:
+                if(Level >= levels.Length)
+                {
+                    SwitchState(State.GAMEOVER);
+                }
+                else
+                {
+                    _currentLevel = Instantiate(levels[Level]);
+                }
                 break;
             case State.GAMEOVER:
                 gameOverPanel.SetActive(true);

@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6802768df803b84793e06bd6749274e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  ballPrefab: {fileID: 151647901802051430, guid: 33ff3187ca7ee5c44b83f225d5ca03a6, type: 3}
+  playerPrefab: {fileID: 1609960874304269777, guid: 46740eff9d912874a99276c2aa1acfb4, type: 3}
   scoreText: {fileID: 1782329370}
   ballsText: {fileID: 1331230298}
   levelText: {fileID: 118713960}
@@ -162,6 +162,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1745717729}
   levels:
   - {fileID: 9103588943240902265, guid: 4ae36fbcae032c244b6709992bbb1b6a, type: 3}
+  - {fileID: 9103588943240902265, guid: a48ec2d7190d32f43b976f6406feb31d, type: 3}
 --- !u!4 &8491420
 Transform:
   m_ObjectHideFlags: 0
