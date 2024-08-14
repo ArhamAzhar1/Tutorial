@@ -69,9 +69,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
 
 
-    public void SwitchState(State newState)
+    public void SwitchState(State newState, float delay = 0)
     {
         EndState();
+        BeginState(newState);
+    }
+
+    IEnumerator SwitchDelay(State newState, float delay)
+    {
+        yeild return new WaitForSeconds(delay);
+        EndState();
+        _state = newState;
         BeginState(newState);
     }
 
@@ -103,6 +111,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     _currentLevel = Instantiate(levels[Level]);
+                    SwitchState(State.PLAY);
                 }
                 break;
             case State.GAMEOVER:

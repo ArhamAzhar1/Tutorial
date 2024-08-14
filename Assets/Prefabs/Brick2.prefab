@@ -113,4 +113,4 @@ MonoBehaviour:
   hits: 3
   points: 2
   rotator: {x: 0.5, y: 0, z: 0}
-  hitMaterial: {fileID: 2100000, guid: ec5e23f12f5c0764cafc32713b9b4183, type: 2}
+  hitMaterial: {fileID: 0}
