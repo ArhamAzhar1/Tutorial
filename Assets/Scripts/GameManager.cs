@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject levelCompletedPanel;
     public GameObject gameOverPanel;
 
+    public GameObject[] levels;
+
     public static GameManager Instance
     {
         get; private set;
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public enum State { MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL, GAMEOVER }
     State _state;
+
+    GameObject _currentBall;
 
     private int _score;
 
@@ -107,6 +111,17 @@ public class GameManager : MonoBehaviour
             case State.INIT:
                 break;
             case State.PLAY:
+                if(_currentBall == null)
+                {
+                    if(Balls > 0)
+                    {
+                       _currentBall = Instantiate(ballPrefab);
+                    }
+                    else
+                    {
+                        SwitchState(State.GAMEOVER);
+                    }
+                }
                 break;
             case State.LEVELCOMPLETED:
                 break;
